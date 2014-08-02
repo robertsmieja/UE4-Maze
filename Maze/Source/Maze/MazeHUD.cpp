@@ -54,7 +54,7 @@ void AMazeHUD::GenMaze(float tileX, float tileY){
             if (CaptureX == offset && CaptureY == offset){
                 grid[1][1]->Destroy();
 
-                const FVector  GenSpawnLoc(400.0f, 400.0f, 0.0f);
+                const FVector  GenSpawnLoc(offset, offset, 0.0f);
                 const FRotator GenSpawnRot(0.0f, 0.0f, 0.0f);
                 //Tile Start
                 AStaticMeshActor* StartTile = SpawnBP<AStaticMeshActor>(GetWorld(), TileStartBP, GenSpawnLoc, GenSpawnRot);
