@@ -3,14 +3,14 @@
 #include "Maze.h"
 #include "MazeHUD.h"
 
-const int MazeSizeMax = 10;
+const int MazeSizeMax = 101;
 
 AMazeHUD::AMazeHUD(const class FPostConstructInitializeProperties& PCIP)
     : Super(PCIP)
 {
     MazeXKeepODD = MazeSizeMax;
     MazeYKeepODD = MazeSizeMax;
-    ShowTests = true;
+    ShowTests = false;
 }
 void AMazeHUD::PostInitializeComponents(){
     Super::PostInitializeComponents();
