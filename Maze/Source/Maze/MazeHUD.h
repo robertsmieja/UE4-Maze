@@ -35,7 +35,6 @@ public:
     virtual void PostInitializeComponents() override;
 };
 
-
 template <typename AMazeGen>
 FORCEINLINE AMazeGen* SpawnBP(
     UWorld* TheWorld,
