@@ -6,12 +6,12 @@
 
 const int MazeSizeMax = 101;
 
-AMazeClassHUD::AMazeClassHUD(const class FPostConstructInitializeProperties& PCIP)
-    : Super(PCIP)
+AMazeClassHUD::AMazeClassHUD(const class FObjectInitializer& ObjectInitializer)
+    : Super(ObjectInitializer)
 {
     MazeXKeepODD = MazeSizeMax;
     MazeYKeepODD = MazeSizeMax;
-    MazeGrid = PCIP.CreateDefaultSubobject<UMazeClass>(this, TEXT("MazeGrid"));
+    MazeGrid = ObjectInitializer.CreateDefaultSubobject<UMazeClass>(this, TEXT("MazeGrid"));
 }
 void AMazeClassHUD::PostInitializeComponents(){
     Super::PostInitializeComponents();

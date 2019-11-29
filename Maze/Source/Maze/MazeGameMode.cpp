@@ -5,8 +5,8 @@
 #include "MazeGameMode.h"
 #include "MazePlayerController.h"
 
-AMazeGameMode::AMazeGameMode(const class FPostConstructInitializeProperties& PCIP)
-	: Super(PCIP)
+AMazeGameMode::AMazeGameMode(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
 	PlayerControllerClass = AMazePlayerController::StaticClass();
 

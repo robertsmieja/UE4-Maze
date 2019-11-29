@@ -4,8 +4,8 @@
 #include "MazeClass.h"
 
 
-UMazeClass::UMazeClass(const class FPostConstructInitializeProperties& PCIP)
-	: Super(PCIP)
+UMazeClass::UMazeClass(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
 
 }

@@ -6,8 +6,8 @@
 
 const int MazeSizeMax = 101;
 
-AMazeArrayHUD::AMazeArrayHUD(const class FPostConstructInitializeProperties& PCIP)
-    : Super(PCIP)
+AMazeArrayHUD::AMazeArrayHUD(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
     MazeXKeepODD = MazeSizeMax;
     MazeYKeepODD = MazeSizeMax;

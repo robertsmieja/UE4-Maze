@@ -31,10 +31,11 @@ class AMazeClassHUD : public AHUD
         UClass* TileEndBP;
 
     UPROPERTY()
-        TSubobjectPtr<UMazeClass> MazeGrid;
+		UMazeClass* MazeGrid;
 
     UFUNCTION(BlueprintCallable, Category = MazeGen)
         void GenMaze(float tileX, float tileY);
+
 public:
     virtual void DrawHUD() override;
     virtual void PostInitializeComponents() override;

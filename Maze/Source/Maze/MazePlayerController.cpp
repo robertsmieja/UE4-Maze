@@ -4,8 +4,8 @@
 #include "MazePlayerController.h"
 
 
-AMazePlayerController::AMazePlayerController(const class FPostConstructInitializeProperties& PCIP)
-	: Super(PCIP)
+AMazePlayerController::AMazePlayerController(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
 
 }

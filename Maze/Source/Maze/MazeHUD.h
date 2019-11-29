@@ -30,6 +30,7 @@ class AMazeHUD : public AHUD
         UClass* TileEndBP;
     UFUNCTION(BlueprintCallable, Category = MazeGen)
         void GenMaze(float tileX, float tileY);
+
 public:
     virtual void DrawHUD() override;
     virtual void PostInitializeComponents() override;
@@ -41,7 +42,7 @@ FORCEINLINE AMazeGen* SpawnBP(
     UClass* TheBP,
     const FVector& Loc,
     const FRotator& Rot,
-    const bool bNoCollisionFail = true,
+    const bool bNoFail = true,
     AActor* Owner = NULL,
     APawn* Instigator = NULL
     ){
@@ -51,7 +52,7 @@ FORCEINLINE AMazeGen* SpawnBP(
 
 
     FActorSpawnParameters SpawnInfo;
-    SpawnInfo.bNoCollisionFail = bNoCollisionFail;
+    SpawnInfo.bNoFail = bNoFail;
     SpawnInfo.Owner = Owner;
     SpawnInfo.Instigator = Instigator;
     SpawnInfo.bDeferConstruction = false;

@@ -3,6 +3,9 @@
 /* A rewrite of MazeHUD, using Rama's array code from the thread */
 #pragma once
 
+#include "CoreMinimal.h"
+#include "Containers/Array.h"
+#include "Engine/StaticMeshActor.h" 
 
 #include "GameFramework/HUD.h"
 #include "MazeArrayHUD.generated.h"
@@ -10,10 +13,10 @@
 USTRUCT()
 struct FMazeGridRow
 {
-    GENERATED_USTRUCT_BODY()
+	GENERATED_USTRUCT_BODY()
 
-        UPROPERTY()
-        TArray<AStaticMeshActor*> Columns;
+    UPROPERTY()
+    TArray<AStaticMeshActor*> Columns;
 
     void AddNewColumn()
     {
@@ -30,10 +33,10 @@ struct FMazeGridRow
 USTRUCT()
 struct FMazeGrid
 {
-    GENERATED_USTRUCT_BODY()
+	GENERATED_USTRUCT_BODY()
 
-        UPROPERTY()
-        TArray<FMazeGridRow> Rows;
+    UPROPERTY()
+    TArray<FMazeGridRow> Rows;
 
     void AddNewRow()
     {
@@ -43,17 +46,17 @@ struct FMazeGrid
     void AddUninitialized(const int32 RowCount, const int32 ColCount)
     {
         //Add Rows
-        for (int32 v = 0; v < RowCount; v++)
+        for (int32 r = 0; r < RowCount; r++)
         {
             AddNewRow();
         }
 
         //Add Columns
-        for (int32 v = 0; v < RowCount; v++)
+        for (int32 r = 0; r < RowCount; r++)
         {
-            for (int32 v = 0; v < ColCount; v++)
+            for (int32 c = 0; c < ColCount; c++)
             {
-                Rows[v].AddNewColumn();
+                Rows[r].AddNewColumn();
             }
         }
     }
@@ -67,13 +70,13 @@ struct FMazeGrid
         const int32 RowTotal = Rows.Num();
         const int32 ColTotal = Rows[0].Columns.Num();
 
-        for (int32 v = 0; v < RowTotal; v++)
+        for (int32 r = 0; r < RowTotal; r++)
         {
-            for (int32 b = 0; b < ColTotal; b++)
+            for (int32 c = 0; c < ColTotal; c++)
             {
-                if (Rows[v].Columns[b] && Rows[v].Columns[b]->IsValidLowLevel())
+                if (Rows[r].Columns[c] && Rows[r].Columns[c]->IsValidLowLevel())
                 {
-                    Rows[v].Columns[b]->Destroy();
+                    Rows[r].Columns[c]->Destroy();
                 }
             }
         }
@@ -120,6 +123,7 @@ class AMazeArrayHUD : public AHUD
 
     UFUNCTION(BlueprintCallable, Category = MazeGen)
         void GenMaze(float tileX, float tileY);
+
 public:
     virtual void DrawHUD() override;
     virtual void PostInitializeComponents() override;
